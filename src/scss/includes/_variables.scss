@@ -1,0 +1,40 @@
+// Colors
+$body-bg: #f7f7f7;
+$body-color: #111;
+$black: #000;
+$white: #fff;
+$grey: #5f606e;
+$primary: #e4bb15;
+$secondary: #11d37d;
+$tertiary: #0AF1F0;
+$quad: #E01FEF;
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Quicksand:400,700&display=swap');
+
+// Other
+$transition-speed: .35s;
+
+// Button Styles
+.btn {
+    background: $secondary;
+    color: $black;
+    padding: 1.5rem 3rem;
+    text-decoration: none;
+    border-radius: .25rem;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: all $transition-speed;
+    border: none;
+
+
+    &:focus,
+    &:hover {
+        @include box-shadow(1rem);
+        transform: scale(1.05);
+        background: lighten($secondary, 5%);
+        outline: none;
+    }
+}

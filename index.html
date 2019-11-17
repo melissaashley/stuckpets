@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Stuck Pet Searcher</title>
+    <link rel="stylesheet" href="dist/css/styles.css" />
+    <meta
+      name="viewport"
+      content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, initial-scale=1.0"
+  />
+  <meta name="robots" content="noindex">
+  <meta name="googlebot" content="noindex">
+	<link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon.png">
+	<link rel="icon" type="image/png" href="favicon.png">
+  </head>
+  <body>
+    
+
+    <section class="container">
+      <div id="helper">
+        <header>
+          <h1>Stuck Pet Searcher</h1>
+          <p class="helper-text">Looking for stuck pets? Type in a search parameter &amp; auto generate your life away.</p>
+        </header>
+
+        <form id="paramSubmit">
+          <div class="form-group">
+            <label for="param">
+              Parameter
+              <span class="helper-text">ie. Coconut</span>
+            </label>
+
+            <input type="text" name="param" id="param" value="" />
+          </div>
+
+          <div class="form-group select">
+              <strong>Append</strong>
+              <select name="type" id="appendType">
+                <option value="1" selected>Numbers (1-500)</option>
+                <option value="501">Numbers (501-1000)</option>
+                <option value="names">Random Names & Words</option>
+              </select>
+          </div>
+      
+          <button type="submit" value="submit" class="btn">SEARCH</button>
+          <button value="stop" id="stop">Stop Search</button>
+        </form>
+      </div>
+
+      <div id="side">
+        <div id="results"></div>
+      </div>
+    </section>
+
+    <script src="dist/js/bundle.min.js"></script>
+  </body>
+</html>
