@@ -57,11 +57,15 @@ function returnResults( param ) {
   let generatedArray = '';
   let selectVal = 1;
 
+  // This code is bad, redo it - mega if!?!? hello!?!?!?!!
   if ( 'names' === appendType ) {
     generatedArray = namesArray;
+  } else if ( 'random' === appendType || 'randomH' === appendType ) {
+    let number = (appendType === 'random') ? '10000' : '100000';
+
+    let numbersArray = Array.from({length: numberCount}, () => Math.floor(Math.random() * number));
+    generatedArray = numbersArray;
   } else {
-    
-    // This code is bad, redo it. 
     if ( '501' === appendType ) {
       selectVal = 501;
     }
