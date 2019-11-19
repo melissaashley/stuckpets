@@ -92,6 +92,8 @@ header {
         &.select {
             border-top: 1px solid #ddd;
             padding-top: 2rem;
+
+           
         }
 
         select {
@@ -100,13 +102,22 @@ header {
             font-size: 14px;
             outline: none;
             height: 2rem;
+            margin-bottom: .5rem;
+
+            &#betweenType {
+                max-width: 50px;
+            }
         }
 
         strong {
             font-weight: 700;
             display: inline-block;
-            padding-right: 1rem;
+            padding-right: .5rem;
             color: $secondary;
+
+            &:last-of-type {
+                padding-left: 1rem;
+            }
         }
     }
 }

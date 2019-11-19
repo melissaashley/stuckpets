@@ -7,7 +7,6 @@ let param = '';
  * name - array data
  */
 let namesArray = ['amber', 'jane', 'jessica', 'mary', 'baby', 'bae', 'bai', 'bby', 'angel', 'sweet', 'care', 'bear', 'cat', 'moon', 'sun', 'jess', 'danny', 'daniel', 'emma', 'sophie', 'sophia', 'mia', 'amelia', 'emily', 'melissa', 'ella', 'elizabeth', 'sofia', 'victoria', 'vicky', 'luna', 'grace', 'zoe', 'zoey', 'lily', 'lilly', 'hanna', 'hannah', 'natalie', 'violet', 'pink', 'purple', 'audrey', 'aurora', 'claire', 'lucy', 'anna', 'anne', 'willow', 'elena', 'joey', 'ivy', 'alex', 'alexa', 'sophie', 'maria', 'faith', 'rose', 'alexandra', 'ashley', 'andrea', 'maria', 'jasmine', 'izzy', 'isabel', 'alyssa', 'ariel', 'molly', 'morgan', 'kim', 'kimberely', 'gwen', 'lauren', 'laura', 'elise', 'alexis', 'fog', 'london', 'blood', 'scary', 'blue', 'dead', 'death', 'sienna', 'gracie', 'josie', 'mya', 'kathy', 'cathie', 'brooke', 'summer', 'sunny', 'sun', 'moon', 'danielle', 'amy', 'rebecca', 'nicole', 'nicky', 'nikky', 'lola', 'lila', 'vanessa', 'june', 'juliet', 'tess', 'tessa', 'samara', 'michelle', 'ruth', 'kamila', 'olivia', 'kate', 'katie', 'dragon'];
-let numberCount = 500;
 
 /**
  * DOM
@@ -54,28 +53,58 @@ function stopIt( event ) {
  */
 function returnResults( param ) {
   let appendType = document.getElementById('appendType').value;
-  let generatedArray = '';
+  let betweenType = document.getElementById('betweenType').value;
+  let generatedArray;
+  let numbersArray;
+  let numberCount = 500;
   let selectVal = 1;
 
-  // This code is bad, redo it - mega if!?!? hello!?!?!?!!
-  if ( 'names' === appendType ) {
-    generatedArray = namesArray;
-  } else if ( 'random' === appendType || 'randomH' === appendType ) {
-    let number = (appendType === 'random') ? '10000' : '100000';
+  switch ( appendType ) {
+    case 'names':
+      numbersArray = namesArray;
+      break;
 
-    let numbersArray = Array.from({length: numberCount}, () => Math.floor(Math.random() * number));
-    generatedArray = numbersArray;
-  } else {
-    if ( '501' === appendType ) {
+    case 'random':
+      numbersArray = Array.from({length: numberCount}, () => Math.floor(Math.random() * 10000));
+      break;
+
+    case 'randomH':
+      numbersArray = Array.from({length: numberCount}, () => Math.floor(Math.random() * 100000));
+      break;
+
+    // fix duplicated numberArray, helper functions resulted in undefined error - DRY
+
+    case '1001':
+      selectVal = 1001;
+      numberCount = 1000;
+      numbersArray = Array.from({length: numberCount}, (v, k) => (k + selectVal));
+      break;
+
+    case '2001':
+      selectVal = 2001;
+      numberCount = 1000;
+      numbersArray = Array.from({length: numberCount}, (v, k) => (k + selectVal));
+      break;
+
+    case '3001':
+      selectVal = 3001;
+      numberCount = 1000;
+      numbersArray = Array.from({length: numberCount}, (v, k) => (k + selectVal));
+      break;
+
+    case '501':
       selectVal = 501;
-    }
+      numbersArray = Array.from({length: numberCount}, (v, k) => (k + selectVal));
+      break;
 
-    let numbersArray = Array.from({length: numberCount}, (v, k) => (k + selectVal));
-    generatedArray = numbersArray;
+    default:
+      numbersArray = Array.from({length: numberCount}, (v, k) => (k + selectVal));      
   }
 
+  generatedArray = numbersArray;
+
   for ( let eachItem of generatedArray ) {
-    let item = `<a href="http://neopets.com/~${param}${eachItem}" target="_blank"><img src="http://pets.neopets.com/cpn/${param}${eachItem}/1/1.png"></a>`;
+    let item = `<a href="http://neopets.com/~${param}${betweenType}${eachItem}" target="_blank"><img src="http://pets.neopets.com/cpn/${param}${betweenType}${eachItem}/1/1.png"></a>`;
     results.innerHTML += item; 
   }
 }

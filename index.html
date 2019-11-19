@@ -34,15 +34,28 @@
           </div>
 
           <div class="form-group select">
+            <div>
               <strong>Append</strong>
               <select name="type" id="appendType">
                 <option value="1" selected>Numbers (1-500)</option>
                 <option value="501">Numbers (501-1000)</option>
+                <option value="1001">Numbers (1001-2000)</option>
+                <option value="2001">Numbers (2001-3000)</option>
+                <option value="3001">Numbers (3001-4000)</option>
                 <option value="random">Random (Feelin' Spicy)</option>
                 <option value="randomH">Random (FLAMIN HOT)</option>
                 <option value="names">Random Names & Words</option>
               </select>
-          </div>
+            </div>
+            <div>
+              <strong>Between</strong>
+              <select name="between" id="betweenType">
+                <option disabled selected value> </option>
+                <option value="_">_</option>
+                <option value="__">__</option>
+              </select>
+            </div>
+        </div>
       
           <button type="submit" value="submit" class="btn">SEARCH</button>
           <button value="stop" id="stop">Stop Search</button>
