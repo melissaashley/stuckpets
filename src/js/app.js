@@ -56,8 +56,8 @@ function returnResults( param ) {
   let betweenType = document.getElementById('betweenType').value;
   let generatedArray;
   let numbersArray;
-  let numberCount = 500;
-  let selectVal = 1;
+  let numberCount = 1000;
+  let selectVal = parseInt(appendType);
 
   switch ( appendType ) {
     case 'names':
@@ -70,31 +70,6 @@ function returnResults( param ) {
 
     case 'randomH':
       numbersArray = Array.from({length: numberCount}, () => Math.floor(Math.random() * 100000));
-      break;
-
-    // fix duplicated numberArray, helper functions resulted in undefined error - DRY
-
-    case '1001':
-      selectVal = 1001;
-      numberCount = 1000;
-      numbersArray = Array.from({length: numberCount}, (v, k) => (k + selectVal));
-      break;
-
-    case '2001':
-      selectVal = 2001;
-      numberCount = 1000;
-      numbersArray = Array.from({length: numberCount}, (v, k) => (k + selectVal));
-      break;
-
-    case '3001':
-      selectVal = 3001;
-      numberCount = 1000;
-      numbersArray = Array.from({length: numberCount}, (v, k) => (k + selectVal));
-      break;
-
-    case '501':
-      selectVal = 501;
-      numbersArray = Array.from({length: numberCount}, (v, k) => (k + selectVal));
       break;
 
     default:

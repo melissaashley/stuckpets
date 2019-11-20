@@ -154,6 +154,7 @@ header {
 
         position: relative;
         z-index: 9;
+        text-align: center;
 
         a {
             @include box-shadow(.5rem);

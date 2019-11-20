@@ -321,6 +321,7 @@ header h1 {
 #side #results {
   position: relative;
   z-index: 9;
+  text-align: center;
 }
 
 #side #results a {
