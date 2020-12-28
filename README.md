@@ -9,7 +9,7 @@ essentially generates images of neopets based on your search term and append sel
 used to find potentially 'rare' stuck pets 
 
 #### try it
-http://www.jsthings.com/sps/
+www.jsthings.com/sps
 
 #### to-do
 - severely needs loading indication on search and/or lazy loading
