@@ -2,6 +2,7 @@ module.exports = function( grunt ) {
 	'use strict';
 
 	// Load all tasks
+	var sass = require('node-sass');
 	require( 'load-grunt-tasks' )( grunt, { scope: 'devDependencies' } );
 
 	grunt.initConfig( {
@@ -49,6 +50,7 @@ module.exports = function( grunt ) {
 		sass: {
 			dist: {
 				options: {
+					implementation: sass,
 					sourceMap: true,
 					outputStyle:  'expanded'
 				},
@@ -64,6 +66,7 @@ module.exports = function( grunt ) {
 			},
 			minify: {
 				options: {
+					implementation: sass,
 					sourceMap: true,
 					outputStyle:  'compressed'
 				},
@@ -94,6 +97,7 @@ module.exports = function( grunt ) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-babel');
 	grunt.loadNpmTasks('grunt-contrib-uglify');
+	grunt.loadNpmTasks('grunt-sass');
 
 	// Register tasks
 	grunt.registerTask( 'default', [

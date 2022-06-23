@@ -14,6 +14,9 @@ let namesArray = ['amber', 'jane', 'jessica', 'mary', 'baby', 'bae', 'bai', 'bby
 const paramSubmit = document.getElementById('paramSubmit');
 const stopSearch = document.getElementById('stop');
 const results = document.getElementById('results');
+const localResults = document.getElementById('local');
+const clearButton = document.createElement('button');
+
 
 /**
  * generateList - generate the list based off the search term
@@ -29,6 +32,8 @@ function generateList( event ) {
   let paramSub = document.getElementById('param');
   param = paramSub.value;
 
+  setLocalStorage( param ); 
+  getLocalStorage();
   returnResults( param );  
 }
 
@@ -83,3 +88,41 @@ function returnResults( param ) {
     results.innerHTML += item; 
   }
 }
+
+/**
+ * setLocalStorage - set the items in local storage
+ */
+function setLocalStorage( param ) {
+  var previousStorage = localStorage.getItem( 'searchedStrings' );
+  var updatedStorage = previousStorage ? (previousStorage + ', ' + param) : param;
+
+  localStorage.setItem( 'searchedStrings', updatedStorage );
+}
+
+/**
+ * getLocalStorage - get the items in local storage
+ */
+function getLocalStorage( param ) {
+  let storage = localStorage.getItem( 'searchedStrings' );
+
+  if ( storage !== null ) {
+    localResults.innerHTML = 'Past search strings: ' + storage;
+    localResults.appendChild( clearButton );
+  }
+}
+
+/**
+ * clearButton - generate the list based off the search term
+ */
+clearButton.innerText = 'Clear History';
+clearButton.classList.add('clear-btn');
+clearButton.addEventListener("click", clearHistory);
+
+function clearHistory( event ) {
+  event.preventDefault();
+
+  localResults.innerHTML = '';
+  localStorage.removeItem( 'searchedStrings' );
+}
+
+getLocalStorage();

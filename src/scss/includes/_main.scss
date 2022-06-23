@@ -205,3 +205,16 @@ header {
         color: $secondary;
     }
 }
+
+#local {
+    padding: 0 2rem 2rem;
+
+    @extend .helper-text;
+
+    .clear-btn {
+        @extend #stop;
+
+        display: block;
+        padding: .5rem 0;
+    }
+}

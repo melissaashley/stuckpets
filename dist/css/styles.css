@@ -349,14 +349,14 @@ header h1 {
   width: 40px;
 }
 
-.helper-text {
+.helper-text, #local {
   display: block;
   color: #5f606e;
   font-weight: 400;
   font-size: .9rem;
 }
 
-#stop {
+#stop, #local .clear-btn {
   background: none;
   border: none;
   padding: 1rem;
@@ -366,8 +366,17 @@ header h1 {
   outline: none;
 }
 
-#stop:hover, #stop:focus {
+#stop:hover, #local .clear-btn:hover, #stop:focus, #local .clear-btn:focus {
   color: #11d37d;
+}
+
+#local {
+  padding: 0 2rem 2rem;
+}
+
+#local .clear-btn {
+  display: block;
+  padding: .5rem 0;
 }
 
 /*# sourceMappingURL=styles.css.map */
